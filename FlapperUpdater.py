@@ -41,7 +41,7 @@ try:
     ''')
 
     #install modules
-    print("         modules")
+    print("------------------modules")
     for x in requiredmodules:
         try:
             import x
@@ -49,21 +49,22 @@ try:
         except ImportError:
             pipinstall(x)
 
-    print("         dbus")
-    systemCmd('sudo apt install python-dbus --quiet')
+    print("------------------dbus")
+    systemCmd('sudo apt install python-dbus')
 
-    print("         git")
-    systemCmd('sudo apt install git --quiet')
+    print("------------------git")
+    systemCmd('sudo apt install git')
 
-    print("         updating scripts")
+    print("------------------updating file structure")
     #Delete existing Flapper Folder
     systemCmd('sudo rm -rf '+Flapper_File_Location)
 
+    print("------------------getting repo")
     #Install new repo file
     systemCmd('git clone '+gitRepo)
 
     #Run main.py in new repo
-    print("         launching")
+    print("------------------launching")
     time.sleep(5)
     exec(open(Flapper_File_Location + '/main.py').read())
 
