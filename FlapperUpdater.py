@@ -16,7 +16,7 @@ urltocheckwifi = "https://www.google.com/ "
 
 requiredmodules = {'requests','simple-term-menu'}
 
-Flapper_File_Location = os.getcwd() + r"\Flapper" #drive\Flapper
+Flapper_File_Location = os.getcwd() + r"/Flapper" #drive\Flapper
 
 #-------------------Prequisit Installer-------------------#
 
@@ -65,10 +65,11 @@ try:
     #Run main.py in new repo
     print("         launching")
     time.sleep(5)
-    exec(open(os.getcwd() + r"\Flapper\main.py").read())
+    exec(open(Flapper_File_Location + '/main.py').read())
 
 except urllib.error.URLError:
     print("!!! Error: No wifi connection, cannot get latest version !!!")
+    print("         launching")
     time.sleep(3)
-    exec(open(os.getcwd() + r"\Flapper\main.py").read())
+    exec(open(Flapper_File_Location + '/main.py').read())
 
