@@ -25,7 +25,7 @@ def systemCmd(command):
 
 def pipinstall(package):
     #subprocess.check_call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNULL)
-    systemCmd('sudo apt install python3-'+package+'--quiet')
+    systemCmd('sudo apt install python3-'+package)
 
 try:
     import requests
