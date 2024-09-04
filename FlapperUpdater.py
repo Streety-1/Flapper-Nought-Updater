@@ -14,7 +14,7 @@ gitRepo = 'https://github.com/Streety-1/Flapper.git'
 
 urltocheckwifi = "https://www.google.com/ "
 
-requiredmodules = {'simple-term-menu'}
+requiredmodules = {'requests','simple-term-menu'}
 
 Flapper_File_Location = os.getcwd() + r"\Flapper" #drive\Flapper
 
@@ -27,7 +27,6 @@ def pipinstall(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNULL)
 
 try:
-    pipinstall('requests')
     import requests
     urllib.request.urlopen(urltocheckwifi)
 
