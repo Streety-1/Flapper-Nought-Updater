@@ -32,8 +32,10 @@ try:
     urllib.request.urlopen(urltocheckwifi)
 
     print('''
-    ╔═════════════════════════════════════════════╗   
-      Getting stuff ready....      
+    ╔═════════════════════════════════════════════╗  
+     
+      Getting stuff ready....   
+         
     ╚═════════════════════════════════════════════╝
     
     ''')
@@ -61,6 +63,7 @@ try:
     systemCmd('git clone '+gitRepo)
 
     #Run main.py in new repo
+    time.sleep(5)
     exec(open(Flapper_File_Location+r'\main.py').read())
 
 except urllib.error.URLError:
