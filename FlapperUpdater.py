@@ -24,7 +24,8 @@ def systemCmd(command):
     os.system(command)
 
 def pipinstall(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNULL)
+    #subprocess.check_call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNULL)
+    systemCmd('sudo apt install python3-'+package)
 
 try:
     import requests
@@ -36,8 +37,6 @@ try:
     ╚═════════════════════════════════════════════╝
     
     ''')
-
-    systemCmd('python.exe -m pip install --upgrade pip --quiet')
 
     #install modules
     print("         modules")
