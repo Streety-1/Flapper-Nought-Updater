@@ -25,7 +25,7 @@ def systemCmd(command):
 
 def pipinstall(package):
     #subprocess.check_call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNULL)
-    systemCmd('sudo apt install python3-'+package)
+    systemCmd('sudo apt install python3-'+package+'--quiet')
 
 try:
     import requests
@@ -63,11 +63,12 @@ try:
     systemCmd('git clone '+gitRepo)
 
     #Run main.py in new repo
+    print("         launching")
     time.sleep(5)
-    exec(open(Flapper_File_Location+r'\main.py').read())
+    exec(open(os.getcwd() + r"\Flapper\main.py").read())
 
 except urllib.error.URLError:
     print("!!! Error: No wifi connection, cannot get latest version !!!")
     time.sleep(3)
-    exec(open(Flapper_File_Location + r'\main.py').read())
+    exec(open(os.getcwd() + r"\Flapper\main.py").read())
 
