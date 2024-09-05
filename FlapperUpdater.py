@@ -18,6 +18,10 @@ requiredmodules = {'requests'}
 
 Flapper_File_Location = os.getcwd() + r"/Flapper" #drive\Flapper
 
+BLUE = '\033[1;34;40m'
+YELLOW = '\033[93m'
+RED = '\033[91m'
+
 #-------------------Prequisit Installer-------------------#
 
 def systemCmd(command):
@@ -30,17 +34,17 @@ try:
     import requests
     urllib.request.urlopen(urltocheckwifi)
 
-    print('''
-    ╔═════════════════════════════════════════════╗  
+    print(BLUE+'''
+    ╔═══════════════════╗  
      
-      Getting stuff ready....   
+       Flapper Nought  
          
-    ╚═════════════════════════════════════════════╝
+    ╚═══════════════════╝
     
     ''')
 
     #install modules
-    print("------------------modules")
+    print(YELLOW+"------------------modules")
     for x in requiredmodules:
         try:
             import x
@@ -48,28 +52,22 @@ try:
         except ImportError:
             pipinstall(x)
 
-    print("------------------dbus")
-    systemCmd('sudo apt install dbus')
-
-    print("------------------git")
-    systemCmd('sudo apt install git')
-
-    print("------------------updating file structure")
+    print(YELLOW+"------------------file structure")
     #Delete existing Flapper Folder
     systemCmd('sudo rm -rf '+Flapper_File_Location)
 
-    print("------------------getting repo")
+    print(YELLOW+"------------------getting repo")
     #Install new repo file
     systemCmd('git clone '+gitRepo)
 
     #Run main.py in new repo
-    print("------------------launching")
-    time.sleep(5)
+    print(YELLOW+"------------------launching")
+    time.sleep(3)
     exec(open(Flapper_File_Location + '/main.py').read())
 
 except urllib.error.URLError:
-    print("!!! Error: No wifi connection, cannot get latest version !!!")
-    print("         launching")
+    print(RED+"!!! Error: No wifi connection, cannot get latest version !!!")
+    print(YELLOW + "------------------launching")
     time.sleep(3)
     exec(open(Flapper_File_Location + '/main.py').read())
 
